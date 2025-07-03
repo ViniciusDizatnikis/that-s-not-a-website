@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./css/style.css" />
+
+  <title>that is not a website</title>
+</head>
+
+<body>
+  <!-- Top Menu -->
+  <nav class="menu">
+    <div class="settings-container" aria-label="Settings">
+      <img src="assets/Adobe Express - file.png" alt="Settings Icon" />
+    </div>
+    <div class="play-container">
+      <button id="play-button" aria-label="Start the game">Go</button>
+    </div>
+  </nav>
+
+  <!-- Narrator Display -->
+  <section id="narrator" class="narrator fade-out" aria-live="polite" role="region">
+    <h1></h1>
+  </section>
+
+  <!-- Detonator -->
+  <section class="detonator" id="detonator" aria-label="Detonator">
+    <img src="assets/cable.png" alt="Cable" id="cable" />
+    <img src="assets/tnt.png" alt="TNT" id="tnt" />
+  </section>
+
+  <!-- Trash Bin -->
+  <section class="trash-bin" id="trash-bin" aria-label="Trash bin">
+    <img src="assets/binOfTrash.png" alt="Trash Bin Icon" />
+  </section>
+
+  <!-- Word Container -->
+  <main class="container">
+    <div class="word-container" role="list" aria-label="Words to manipulate">
+      <h1 id="word-that" role="listitem">that</h1>
+      <h1 id="word-backtick" role="listitem">`</h1>
+      <h1 id="word-s" role="listitem">s</h1>
+      <h1 id="word-not" role="listitem">not</h1>
+      <h1 id="word-a" role="listitem">a</h1>
+      <h1 id="word-website" role="listitem">website</h1>
+    </div>
+  </main>
+
+  <script src="js/mainController.js" type="module"></script>
+</body>
+
+</html>

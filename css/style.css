@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Bebas Neue", sans-serif;
+    color: white;
+    background-color: rgb(29, 27, 27);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Naarator */
+.narrator {
+    top: 90%;
+    padding: 10px;
+    width: auto;
+    height: auto;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.narrator h1 {
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.fade-in {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    pointer-events: auto;
+}
+
+.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    pointer-events: none;
+}
+
+
+/* Menu */
+
+.menu {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.settings-container {
+    flex-grow: 0.01;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+}
+
+.settings-container img {
+    height: 50px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.play-container {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+.play-container button {
+    margin-bottom: 200px;
+    padding: 12px 54px;
+    background-color: #1f1f1f;
+    color: white;
+    border: 2px solid #ffffff33;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.play-container button:hover {
+    background-color: #ffffff;
+    color: #1f1f1f;
+    border-color: #ffffff;
+    transform: scale(1.05);
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.word-container {
+    position: relative;
+    gap: 20px;
+    width: 50%;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid white;
+}
+
+.word-container h1 {
+    font-size: 8rem;
+    position: relative;
+    user-select: none;
+}
+
+.detonator {
+    left: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    transition: left 1s ease;
+}
+
+.detonator img {
+    transition: all 0.4s ease;
+    position: absolute;
+    height: auto;
+    cursor: pointer;
+}
+
+
+.explode {
+    position: fixed;
+    z-index: 999;
+    transition: transform 0.8s ease;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    20% {
+        transform: translate(-5px, 5px) rotate(-5deg);
+    }
+
+    40% {
+        transform: translate(5px, -5px) rotate(5deg);
+    }
+
+    60% {
+        transform: translate(-5px, 5px) rotate(-5deg);
+    }
+
+    80% {
+        transform: translate(5px, -5px) rotate(5deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+.trash-bin {
+    left: -1%;
+    top: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    transition: top 1s ease;
+}
