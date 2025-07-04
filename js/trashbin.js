@@ -1,19 +1,27 @@
 export class TrashBin {
   constructor() {
-    this.trash = document.getElementById('trash-bin'); 
+    //Sound
+    this.sound = new Audio('assets/trash.mp3');
+
+    this.trash = document.getElementById('trash-bin');
   }
 
-  moveUp() {
-    console.log(this.trash)
+
+  show() {
     this.trash.style.top = '80%';
   }
 
-  playSound() {
-    const sound = new Audio('assets/trash.mp3');
-    sound.currentTime = 0;
-    sound.play();
+  hide() {
+    this.trash.style.top = '100%';
   }
 
+
+  playSound() {
+    this.sound.currentTime = 0;
+    this.sound.play();
+  }
+
+  // Verifica se o elemento está sobrepondo a lixeira
   isElementOverlapping(el) {
     const elRect = el.getBoundingClientRect();
     const trashRect = this.trash.getBoundingClientRect();
@@ -26,9 +34,9 @@ export class TrashBin {
     );
   }
 
+  // Remove o elemento e "fecha" a lixeira
   disposeElement(el) {
     this.playSound();
     el.remove();
-    this.trash.style.top = '100%';
   }
 }

@@ -2,32 +2,38 @@ import { shakeAll, explodeTitle } from "./actions.js";
 
 export class Detonator {
     constructor(onExplodeCallback) {
-        this.title = document.querySelectorAll('.word-container h1'); 
+        // Elementos DOM
+        this.title = document.querySelectorAll('.word-container h1');
         this.detonator = document.getElementById('detonator');
-        this.cable = document.getElementById('cable');
+        this.cable = document.getElementById('lever');
         this.tnt = document.getElementById('tnt');
+
+        // Sons
         this.slide = new Audio('./assets/slide.mp3');
         this.triggering = new Audio('assets/triggering.mp3');
         this.explosion = new Audio('assets/explosion.mp3');
-        this.activated = false;
+
+        this.activated = false; // evitar múltiplas ativações
         this.onExplodeCallback = onExplodeCallback;
 
         this.tnt.addEventListener('click', () => this.handleClick());
     }
 
     show() {
-        this.detonator.style.left = '75%';
         this.slide.play();
+        this.detonator.style.left = '75%';
     }
 
     hide() {
         this.detonator.style.left = '100%';
     }
 
+    // Move visualmente a alavanca para simular ativação
     moveCable(y) {
         this.cable.style.transform = `translateY(${y}px)`;
     }
 
+    // Ao clicar no TNT
     async handleClick() {
         if (this.activated) return;
         this.activated = true;
@@ -46,12 +52,11 @@ export class Detonator {
 
     async playExplosion() {
         this.explosion.play();
-
-        await new Promise(resolve => setTimeout(resolve, 4400));
+        await new Promise(r => setTimeout(r, 4400));
         shakeAll();
 
-        explodeTitle();
-    }
+        await explodeTitle();
 
-   
+        if (this.onExplodeCallback) this.onExplodeCallback();
+    }
 }

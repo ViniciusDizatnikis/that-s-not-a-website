@@ -1,3 +1,7 @@
+/* ==============================
+   RESET E CONFIGURAÇÕES GLOBAIS
+   ============================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -8,24 +12,29 @@ body {
     font-family: "Bebas Neue", sans-serif;
     color: white;
     background-color: rgb(29, 27, 27);
+    display: flex;
     align-items: center;
     justify-content: center;
-    display: flex;
     width: 100%;
     height: 100vh;
     overflow: hidden;
 }
 
-/* Naarator */
+
+/* ==============================
+   NARRATOR (BARRA DE TEXTO)
+   ============================== */
+
 .narrator {
+    position: fixed;
     top: 90%;
     padding: 10px;
     width: auto;
     height: auto;
-    position: fixed;
+
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: flex-end;
 }
 
 .narrator h1 {
@@ -33,22 +42,25 @@ body {
     opacity: 0.8;
 }
 
+/* Animações de fade */
 .fade-in {
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
     pointer-events: auto;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .fade-out {
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
     pointer-events: none;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 
-/* Menu */
+/* ==============================
+   MENU
+   ============================== */
 
 .menu {
     position: fixed;
@@ -58,12 +70,13 @@ body {
     height: 100%;
 }
 
+/* Container das configurações */
 .settings-container {
     flex-grow: 0.01;
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: flex-end;
     justify-content: center;
 }
 
@@ -73,25 +86,29 @@ body {
     cursor: pointer;
 }
 
+/* Container do botão play */
 .play-container {
     flex-grow: 1;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .play-container button {
     margin-bottom: 200px;
     padding: 12px 54px;
+
     background-color: #1f1f1f;
     color: white;
     border: 2px solid #ffffff33;
     border-radius: 8px;
+
     font-size: 1.1rem;
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 1px;
+
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -103,9 +120,15 @@ body {
     transform: scale(1.05);
 }
 
+
+/* ==============================
+   CONTAINER PRINCIPAL E TÍTULO
+   ============================== */
+
 .container {
     width: 100%;
     height: 100%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,11 +137,13 @@ body {
 
 .word-container {
     position: relative;
-    gap: 20px;
     width: 50%;
     height: 130px;
+
     display: flex;
     justify-content: center;
+    gap: 20px;
+
     border-bottom: 1px solid white;
 }
 
@@ -128,50 +153,49 @@ body {
     user-select: none;
 }
 
+
+/* ==============================
+   DETONATOR (CONTROLE DE EXPLOSÃO)
+   ============================== */
+
 .detonator {
+    position: fixed;
     left: 100%;
-    position: absolute;
     display: flex;
     flex-direction: column;
-    position: fixed;
+
     transition: left 1s ease;
 }
 
 .detonator img {
-    transition: all 0.4s ease;
     position: absolute;
     height: auto;
+
     cursor: pointer;
+    transition: all 0.4s ease;
 }
 
 
-.explode {
-    position: fixed;
-    z-index: 999;
-    transition: transform 0.8s ease;
-}
+/* ==============================
+   ANIMAÇÃO DE SHAKE (TREMER)
+   ============================== */
 
 @keyframes shake {
     0% {
         transform: translate(0, 0) rotate(0deg);
     }
-
     20% {
         transform: translate(-5px, 5px) rotate(-5deg);
     }
-
     40% {
         transform: translate(5px, -5px) rotate(5deg);
     }
-
     60% {
         transform: translate(-5px, 5px) rotate(-5deg);
     }
-
     80% {
         transform: translate(5px, -5px) rotate(5deg);
     }
-
     100% {
         transform: translate(0, 0) rotate(0deg);
     }
@@ -181,11 +205,29 @@ body {
     animation: shake 0.5s ease-in-out;
 }
 
+
+/* ==============================
+   EXPLOSÃO
+   ============================== */
+
+.explode {
+    position: fixed;
+    z-index: 999;
+    transition: transform 0.8s ease;
+}
+
+
+/* ==============================
+   LIXEIRA (TRASH BIN)
+   ============================== */
+
 .trash-bin {
+    position: fixed;
     left: -1%;
     top: 100%;
-    position: fixed;
+
     display: flex;
     flex-direction: column;
+
     transition: top 1s ease;
 }
